@@ -1,0 +1,416 @@
+import { motion } from "framer-motion";
+import clanLogo from "./assets/kts-tram-logo.jpg";
+
+const members = [
+  {
+    name: "𝐊𝐓𝐒 ! Spy +",
+    role: "Support Captain",
+    specialty: "Front-line sustain, emergency shielding, and triage for every squad push.",
+  },
+  {
+    name: "𝐊𝐓𝐒 ! Tranko",
+    role: "Recon Maestro",
+    specialty: "Map dissections, drone intel, and live-call flanks that crack open holds.",
+  },
+  {
+    name: "𝐊𝐓𝐒 ! spoocy",
+    role: "Discord Manager",
+    specialty: "Community ops, event scheduling, and discipline across the KTS server.",
+  },
+  {
+    name: "KTS Specter",
+    role: "Tactical Commander",
+    specialty: "Macro calls, terrain control, and synchronized strike timelines.",
+  },
+  {
+    name: "KTS Rogue",
+    role: "Entry Specialist",
+    specialty: "Aggressive breach plays, instant trades, and door-kick confidence.",
+  },
+  {
+    name: "KTS Ember",
+    role: "Anchor Sniper",
+    specialty: "Long-range lockdowns, crossfire anchoring, and clutch-site holds.",
+  },
+];
+
+function App() {
+  const scrollToSection = (id: string) => {
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <main className="relative min-h-screen overflow-hidden bg-[#05060b] text-white">
+      <div className="pointer-events-none absolute inset-0 bg-tech-grid opacity-10" aria-hidden />
+      <div className="cosmic-field" aria-hidden>
+        <div className="cosmic-orb cosmic-orb--alpha" />
+        <div className="cosmic-orb cosmic-orb--beta" />
+        <div className="cosmic-orb cosmic-orb--gamma" />
+        <div className="cosmic-orb cosmic-orb--delta" />
+        <div className="cosmic-orb cosmic-orb--epsilon" />
+        <span className="cosmic-spark cosmic-spark--one" />
+        <span className="cosmic-spark cosmic-spark--two" />
+        <span className="cosmic-spark cosmic-spark--three" />
+      </div>
+      <div className="pointer-events-none absolute bottom-[-6rem] left-[-6rem] h-80 w-80 rounded-full bg-red-600/40 blur-3xl animate-float" aria-hidden />
+      <div className="pointer-events-none absolute bottom-[-7rem] right-[-5rem] h-96 w-96 rounded-full bg-red-400/25 blur-3xl animate-glow" aria-hidden />
+
+      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 28, x: 0, rotate: 0 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            x: [0, -10, 10, -6, 6, -3, 3, 0],
+            rotate: [0, -0.6, 0.6, -0.3, 0.3, 0],
+          }}
+          transition={{
+            duration: 1.2,
+            ease: "easeOut",
+            x: { duration: 1.2, ease: "easeInOut" },
+            rotate: { duration: 1.2, ease: "easeInOut" },
+          }}
+          className="flex flex-col items-center text-center"
+        >
+          <div className="mb-10 flex items-center justify-center">
+            <motion.div
+              className="relative flex h-36 w-36 items-center justify-center rounded-full bg-black/80 backdrop-blur-lg neon-ring"
+              animate={{
+                rotate: [0, -2.5, 2.5, 0],
+                scale: [1, 1.04, 1],
+                boxShadow: [
+                  "0 0 25px rgba(244, 63, 94, 0.45), inset 0 0 40px rgba(244, 63, 94, 0.25)",
+                  "0 0 40px rgba(244, 63, 94, 0.6), inset 0 0 55px rgba(244, 63, 94, 0.35)",
+                  "0 0 25px rgba(244, 63, 94, 0.45), inset 0 0 40px rgba(244, 63, 94, 0.25)",
+                ],
+              }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="absolute inset-[12%] rounded-full bg-gradient-to-br from-red-500 via-red-600 to-red-400 opacity-60 blur-lg" />
+              <motion.img
+                src={clanLogo}
+                alt="KTS TRAM clan logo"
+                className="relative z-10 h-28 w-28 rounded-full object-cover shadow-[0_0_25px_rgba(248,113,113,0.6)]"
+                loading="lazy"
+                animate={{ scale: [1, 1.06, 1] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+              />
+              <motion.div
+                className="absolute -bottom-5 w-44 rounded-full border border-red-500/40 bg-red-500/10 px-4 py-1 text-center text-[0.65rem] uppercase tracking-[0.5em] text-red-200"
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                Tram
+              </motion.div>
+            </motion.div>
+          </div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            whileHover={{ scale: 1.02 }}
+            className="font-display text-[clamp(3rem,8vw,5rem)] font-semibold uppercase text-white drop-shadow-[0_0_12px_rgba(248,113,113,0.35)] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/70"
+            role="button"
+            tabIndex={0}
+            onClick={() => scrollToSection("clan-members")}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                scrollToSection("clan-members");
+              }
+            }}
+          >
+            KTS TEAM
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-6 max-w-2xl text-lg text-zinc-300 sm:text-xl"
+          >
+            The biggest clan community forged by KTS TEAM
+          </motion.p>
+
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.9,
+                  delay: 0.45,
+                  ease: "easeOut",
+                  when: "beforeChildren",
+                  staggerChildren: 0.12,
+                },
+              },
+            }}
+            className="mt-14 grid w-full max-w-3xl grid-cols-1 gap-5 sm:grid-cols-2"
+          >
+            {[
+              {
+                title: "YouTube",
+                handle: "NEROBNHAMA",
+                url: "https://www.youtube.com/@NEROBNHAMA",
+                gradient:
+                  "linear-gradient(135deg, rgba(255,0,0,0.75) 0%, rgba(214,45,32,0.8) 45%, rgba(102,11,11,0.9) 100%)",
+                icon: (
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    className="h-10 w-10 text-white drop-shadow-[0_0_12px_rgba(248,113,113,0.6)]"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M21.58 7.2c-.18-.67-.7-1.2-1.36-1.38C18.56 5.5 12 5.5 12 5.5s-6.56 0-8.22.32c-.66.18-1.18.71-1.36 1.38C2.1 8.88 2.1 12 2.1 12s0 3.12.32 4.8c.18.67.7 1.2 1.36 1.38C5.44 18.5 12 18.5 12 18.5s6.56 0 8.22-.32c.66-.18 1.18-.71 1.36-1.38.32-1.68.32-4.8.32-4.8s0-3.12-.32-4.8Zm-11.5 7.55V9.25l5.47 2.75-5.47 2.75Z"
+                    />
+                  </svg>
+                ),
+              },
+              {
+                title: "TikTok",
+                handle: "@nero.55..55",
+                url: "https://www.tiktok.com/@nero.55..55",
+                gradient:
+                  "linear-gradient(135deg, rgba(111,0,255,0.8) 0%, rgba(0,225,255,0.7) 52%, rgba(0,0,0,0.85) 100%)",
+                icon: (
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    className="h-10 w-10 text-white drop-shadow-[0_0_12px_rgba(96,165,250,0.55)]"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M18.67 7.25a5.18 5.18 0 01-3.18-1.08v7.03a4.83 4.83 0 11-4.83-4.83c.25 0 .5.02.74.06v2.22a2.62 2.62 0 00-.74-.1 2.61 2.61 0 102.62 2.6V2h2.2c.04.66.23 1.3.56 1.87.49.89 1.29 1.6 2.32 1.85l.31.07v2.12l-.31-.02Z"
+                    />
+                  </svg>
+                ),
+              },
+            ].map((card) => (
+              <motion.a
+                key={card.title}
+                href={card.url}
+                aria-label={card.title}
+                target="_blank"
+                rel="noreferrer"
+                variants={{
+                  hidden: { opacity: 0, y: 24 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      type: "spring",
+                      stiffness: 120,
+                      damping: 14,
+                    },
+                  },
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-black/70 p-[1px]"
+              >
+                <div
+                  className="absolute inset-0 opacity-90 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{ background: card.gradient }}
+                />
+                <div className="relative flex h-full flex-col items-center gap-6 rounded-3xl bg-[#06070f]/95 px-7 py-9 text-center backdrop-blur-xl">
+                  <motion.div
+                    className="flex h-20 w-20 items-center justify-center rounded-3xl border border-white/10 bg-black/70"
+                    animate={{ rotate: [0, 6, -4, 0] }}
+                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <div className="animate-flicker">
+                      {card.icon}
+                    </div>
+                  </motion.div>
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="font-display text-xs uppercase tracking-[0.5em] text-white/70">
+                      {card.title}
+                    </span>
+                    <motion.span
+                      className="text-lg font-semibold text-white"
+                      animate={{ opacity: [0.7, 1, 0.7] }}
+                      transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      {card.handle}
+                    </motion.span>
+                  </div>
+                  <motion.div
+                    className="flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white"
+                    animate={{ boxShadow: [
+                      "0 0 0 rgba(255,255,255,0)",
+                      "0 0 20px rgba(248,250,252,0.35)",
+                      "0 0 0 rgba(255,255,255,0)",
+                    ] }}
+                    transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    Engage
+                  </motion.div>
+                </div>
+              </motion.a>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        <div className="pointer-events-none mt-24 h-px w-full max-w-4xl bg-gradient-to-r from-transparent via-red-500/70 to-transparent" aria-hidden />
+        <div className="pointer-events-none mt-6 text-xs uppercase tracking-[0.4em] text-zinc-500">
+          Forged for Victory · Elite Tactical Unit
+        </div>
+        <motion.button
+          onClick={() => scrollToSection("clan-intel")}
+          whileHover={{ scale: 1.04, y: -2 }}
+          whileTap={{ scale: 0.97 }}
+          className="mt-10 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.4em] text-white transition-colors hover:border-white/30 hover:text-red-300"
+        >
+          Scroll for Clan Intel ↓
+        </motion.button>
+      </section>
+
+      <section
+        id="clan-intel"
+        className="relative z-10 flex min-h-screen flex-col justify-center bg-gradient-to-b from-black/20 via-black/65 to-black px-6 py-24 md:px-16"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 45 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mx-auto w-full max-w-5xl"
+        >
+          <h2 className="font-display text-3xl uppercase tracking-[0.35em] text-red-400/90 sm:text-4xl">
+            Clan Intel
+          </h2>
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-zinc-200 sm:text-lg">
+            KTS TRAM is forged in relentless scrims and precision tactics. From cross-map reconnaissance to coordinated strikes, our squads execute with discipline and creative edge. Every recruit is sharpened through trial, guided by veterans who have dominated circuits across multiple titles.
+          </p>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: 0.1, duration: 0.7 }}
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur"
+            >
+              <h3 className="font-display text-sm uppercase tracking-[0.4em] text-red-300">Strategic Core</h3>
+              <p className="mt-3 text-sm text-zinc-200">
+                Precision map calls, multi-lane rotations, and disruptive flanks define the KTS approach. We study every patch, every weapon tuning, and adapt faster than the meta can shift.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: 0.2, duration: 0.7 }}
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur"
+            >
+              <h3 className="font-display text-sm uppercase tracking-[0.4em] text-red-300">Squad Culture</h3>
+              <p className="mt-3 text-sm text-zinc-200">
+                Discipline without ego. Every member learns the system, carries the comms, and locks in when the match timer starts. Victory is built on trust and consistent execution.
+              </p>
+            </motion.div>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+            className="mt-10 rounded-3xl border border-red-500/30 bg-red-500/10 p-6 backdrop-blur"
+          >
+            <h3 className="font-display text-sm uppercase tracking-[0.4em] text-red-200">Operations</h3>
+            <p className="mt-3 text-sm text-zinc-100">
+              Weekly scrim blocks, VOD analysis, and tactical labs keep our edge sharp. When we drop into a lobby, it’s with elite precision and intent to dominate.
+            </p>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      <section
+        id="clan-members"
+        className="relative z-10 flex min-h-screen flex-col justify-center bg-gradient-to-b from-black via-black/80 to-[#05060b] px-6 py-24 md:px-16"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mx-auto w-full max-w-5xl"
+        >
+          <div className="flex flex-col gap-6 text-left sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="font-display text-3xl uppercase tracking-[0.35em] text-red-400/90 sm:text-4xl">
+                Clan Members
+              </h2>
+              <p className="mt-4 max-w-3xl text-base text-zinc-200 sm:text-lg">
+                Meet the operators who keep the KTS TEAM community the biggest and most formidable clan on the circuit.
+              </p>
+            </div>
+            <motion.button
+              onClick={() => scrollToSection("clan-intel")}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white transition-colors hover:border-white/30 hover:text-red-300"
+            >
+              Back to Intel ↑
+            </motion.button>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {members.map((member, index) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ delay: 0.15 + index * 0.06, duration: 0.7, ease: "easeOut" }}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/15 via-transparent to-sky-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="relative flex flex-col gap-4">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-black/40 text-sm font-semibold uppercase tracking-[0.3em] text-red-200 shadow-[0_0_12px_rgba(248,113,113,0.3)]">
+                      KTS
+                    </span>
+                    <div>
+                      <h3 className="font-display text-lg uppercase tracking-[0.25em] text-white">
+                        {member.name}
+                      </h3>
+                      <p className="text-xs uppercase tracking-[0.3em] text-red-300/90">
+                        {member.role}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-sm leading-relaxed text-zinc-100">
+                    {member.specialty}
+                  </p>
+                  <motion.span
+                    className="mt-2 text-xs uppercase tracking-[0.35em] text-white/60"
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.12 }}
+                  >
+                    Support rank: {index < 3 ? "Command" : "Core"}
+                  </motion.span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
+    </main>
+  );
+}
+
+export default App;
